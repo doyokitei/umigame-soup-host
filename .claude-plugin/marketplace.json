@@ -1,0 +1,11 @@
+{
+  "name": "doyokitei-skills",
+  "owner": { "name": "DoyoKitei" },
+  "plugins": [
+    {
+      "name": "umigame-soup-host",
+      "source": "./",
+      "description": "A Claude Skill that hosts Umigame no Soup (Turtle Soup) lateral thinking puzzles — asks the riddle, answers yes/no, and judges your guess."
+    }
+  ]
+}
