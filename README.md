@@ -33,6 +33,7 @@ claude plugin install umigame-soup-host@<マーケットプレイス名>
 
 Claudeに「ウミガメのスープを出題して」のように頼むだけ。プラグインとしてインストールしていれば`/umigame-soup-host`でも呼び出せる。問題文と「なぜでしょう？」が提示されるので、はい／いいえで答えられる質問を重ねて真相を探ろう。
 
+---
 
 # Umigame no Soup Host (ウミガメのスープ出題役)
 
