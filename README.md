@@ -1,3 +1,39 @@
+# ウミガメのスープ出題役 (Umigame no Soup Host)
+
+Claudeを「ウミガメのスープ」（水平思考クイズ）の出題役にするClaude Skill。オリジナルの謎を出題し、質問に「はい／いいえ／関係ありません」で答え、正解判定まで行う。
+
+## できること
+
+- **毎回オリジナルの謎を生成。** 有名な既存問題（「ウミガメのスープ」本編、エレベーターの男など）の使い回しはしない。
+- **真相はClaude自身の思考(thinking)にも漏れない。** 問題作成はサブエージェントに任せ、真相はbase64化してスクラッチファイルに保存。最初の質問が来るまでファイルは開かない。
+- **難易度は「やや難〜難」を想定**（質問40〜60回程度）。ミスリードはあるが、後で聞けば納得できるフェアな謎にしてある。
+- **回答は「はい」「いいえ」「関係ありません」**が基本。質問が曖昧なときだけ一言補足が入る。
+- **30問を超えて行き詰まったら**、ヒントが欲しいか聞いてくれる。
+- **正解したら**真相を解説し、続けてもう1問やるか聞いてくれる。
+
+> 謎と回答は日本語・日本の日常的な文脈を前提に生成される。日本語話者向けのスキル。
+
+## 必要な環境
+
+- サブエージェント（`Agent`ツール）が使える環境（Claude Codeなど）。これが真相を出題役自身の思考から隠す仕組みの要。
+- サブエージェントが使えない場合でもスキル自体は動くが、その場合は真相がClaudeのthinkingに漏れる可能性がある旨が伝えられる。
+
+## インストール方法
+
+**方法1 — プラグインマーケットプレイスとして**
+```bash
+claude plugin marketplace add <ユーザー名>/<このリポジトリ名>
+claude plugin install umigame-soup-host@<マーケットプレイス名>
+```
+
+**方法2 — 手動**
+`skills/umigame-soup-host/`フォルダをそのまま自分の`skills/`ディレクトリ（例: `~/.claude/skills/`）にコピーするか、Claude.aiの「Customize > Skills」から`SKILL.md`を直接アップロードする。
+
+## 使い方
+
+Claudeに「ウミガメのスープを出題して」のように頼むだけ。プラグインとしてインストールしていれば`/umigame-soup-host`でも呼び出せる。問題文と「なぜでしょう？」が提示されるので、はい／いいえで答えられる質問を重ねて真相を探ろう。
+
+
 # Umigame no Soup Host (ウミガメのスープ出題役)
 
 A Claude Skill that turns Claude into a host for **Umigame no Soup** (海亀のスープ / "Turtle Soup"), a Japanese lateral-thinking puzzle game. Claude generates an original riddle, seals the answer away from itself, and lets you solve it by asking yes/no questions.
